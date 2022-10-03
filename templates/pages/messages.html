@@ -1,0 +1,25 @@
+{% if messages %}
+
+    {% for message in massages %}
+        <div id="massage" class="container">
+            <div class="alert alert-{{ message.tags}}" alert-dismissable role="alert">
+                <button type="button" class="close" data-dismiss="alert"><span aria-hideden="true">&times;</span></div>
+
+                <strong>
+                    {% if massage.leve == DEFAULT_MESSAGE_LEVELS.ERROR %}
+
+                        Error:
+                    {% else %}
+
+                        {{ message.tag|title}}
+
+                    {% endif %}
+                </strong>
+
+                {{message}}
+            </div>
+        </div>
+    {% endfor %}
+
+{% endif %}
+

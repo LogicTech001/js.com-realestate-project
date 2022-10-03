@@ -1,0 +1,373 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- Start Page Title Area -->
+<div class="page-title-area item-bg1 jarallax" data-jarallax='{"speed": 0.2}'>
+    <div class="container">
+        <div class="page-title-content">
+            <h2>Our Painting Services</h2>
+
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li>Painting Services</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- End Page Title Area -->
+
+<!-- Start Projects Details Area -->
+<section class="projects-details-area ptb-100">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-4 col-md-12">
+                <div class="project-details-img">
+                    <img src="{% static 'assets/img/paint-1.jpg' %}" alt="image">
+                </div>
+            </div>
+
+            {% comment %} <div class="col-lg-4 col-md-12">
+                <div class="project-details-info">
+                    <ul>
+                        <li><span>Customer Name:</span> Jason Roy</li>
+                        <li><span>Category:</span> Art & Design</li>
+                        <li><span>Date:</span> 04/11/2021</li>
+                        <li><span>Status:</span> In Process</li>
+                        <li><span>Demo Link:</span> <a href="#" target="_blank">www.fennec.com</a></li>
+                        <li><span>Tags: </span> <a href="#">Art</a>, <a href="#">Design</a></li>
+                    </ul>
+                </div>
+            </div> {% endcomment %}
+
+            
+
+            <div class="col-lg-12 col-md-12">
+                <div class="project-details-desc">
+                    <h3>Heating</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis noexercit ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis noexercit ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</p>
+
+                    <blockquote class="blockquote">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis noexercit ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt Lorem ipsum dolor sit amet.</p>
+                    </blockquote>
+
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis noexercit ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+
+                    <div class="project-next-and-prev">
+                        <a href="#" class="btn btn-primary">Booking Free</a>
+                        <a href="#" class="btn btn-primary">Booking Free</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row h-100 align-items-center contact-form">
+                <div class="col-lg-4 col-md-12">
+                    <div class="leave-your-message">
+                        <h3>Leave Your Message</h3>
+                        <p>If you have any questions about the services we provide simply use the form below. We try and respond to all queries and comments within 24 hours.</p>
+                        
+                        <div class="stay-connected">
+                            <h3>Stay Connected</h3>
+                            <ul>
+                                <li>
+                                    <a href="#" target="_blank">
+                                        <i class="fab fa-facebook-f"></i>
+                                        
+                                        <span>Facebook</span>
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="#" target="_blank">
+                                        <i class="fab fa-twitter"></i>
+                                        
+                                        <span>Twitter</span>
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="#" target="_blank">
+                                        <i class="fab fa-instagram"></i>
+                                        
+                                        <span>Instagram</span>
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="#" target="_blank">
+                                        <i class="fab fa-linkedin-in"></i>
+                                        
+                                        <span>Linkedin</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-8 col-md-12">
+                    <div class="col-lg-8 col-md-12">
+                        {% comment %} {% include 'pages/messages.html' %} {% endcomment %}
+    
+                       {% for message in messages %}
+                       <strong style="color: green !important; font-style:bold; padding: 10px">{{ message}}</strong>
+                        
+                        {% endfor %}
+                        
+    
+    
+    
+                        <form  method="POST">
+                            {% csrf_token %}
+                                {% comment %} {{form.as_p}} {% endcomment %}
+                            
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        <label>Full Name*</label>
+                                        <input type="text" class="form-control" name="full_name" id="name" required data-error="Please enter your name">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-6 col-md-6">
+                                     <div class="form-group">
+                                        <label>Phone*</label>
+                                        <input type="number" class="form-control" name="phone" id="phone" required data-error="Please enter your phone">
+                                        <div class="help-block with-errors"></div>   
+                                    </div> 
+                                </div>
+    
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        <div>
+                                            <label>Type of services*</label>
+                                        </div>
+                                        
+                                        <select name="type_of_services"  class="form-control">
+                                            <option value="Tiles-Fixing">select</option>
+                                            <option value="Tiles-Fixing">Tiles-Fixing</option>
+                                            <option value="Tiles-Fixing">plumbing</option>
+                                            <option value="Tiles-Fixing">Ac-Technician</option>
+                                            <option value="Tiles-Fixing">Painting</option>
+                                            <option value="Tiles-Fixing">Electrician</option>
+                                            <option value="Tiles-Fixing">Carpenter</option>
+                                        </select>
+    
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        <div>
+                                            <label>Purpose*</label>
+                                        </div>
+                                        
+                                        <select name="purposes"  class="form-control">
+                                            <option>select</option>
+                                            <option value="Shower Tray">Shower Tray</option>
+                                            <option value="Shower Tap">Shower Tap</option>
+                                            <option value="Tap-Change">Tap-Change</option>
+                                            <option value="Drinage-Flush">Drinage-Flush</option>
+                                        </select>
+    
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        <label>Flat no*</label>
+                                        <input type="text" class="form-control" name="flat_no" id="flat_no" required data-error="Please enter your Plat_no">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                       
+                                        <div>
+                                            <label>Building name*</label>
+                                        </div>
+                                        
+                                        <select name="building_names"  class="form-control">
+                                            <option>select</option>
+                                            <option value="Al-Nadha-1">Al-Nadha-1</option>
+                                            <option value="Al-Nadha-2">Al-Nadha-2</option>
+                                            <option value="Al-Nadha-3">Al-Nadha-3</option>
+                                            <option value="Al-Salem-Tower-1">Al-Salem-Tower-1</option>
+                                            <option value="Al-Salem-Tower-2">Al-Salem-Tower-2</option>
+                                            <option value="Tower-8">Tower-8</option>
+                                            <option value="Tower-9">Tower-9</option>
+                                            <option value="Golden-Tower">Golden-Tower</option>
+                                            <option value="Silver-Tower">Silver-Tower</option>
+                                        </select>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        <label>Date*</label>
+                                        <input type="date" class="form-control" name="date" id="dateno" required data-error="Please enter your Plat_no">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="form-group">
+                                        <label>Message*</label>
+                                        <textarea name="message" class="form-control" id="message" cols="30" rows="5" required data-error="Write your message"></textarea>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div> 
+                                
+                                {% comment %} <div class="col-lg-12 col-md-12">
+                                    <button type="submit" class="btn btn-primary">Send Message</button>
+                                    <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                    <div class="clearfix"></div>
+                                </div> {% endcomment %}
+                            </div> 
+                            <div class="col-lg-12 col-md-12">
+                                <button type="submit" class="btn btn-primary">Send Message</button>
+                                
+                            </div>
+                        </form>
+                    </div>
+                {% comment %} <div class="col-lg-8 col-md-12">
+                    {% comment %} {% include 'pages/messages.html' %} {% endcomment %}
+
+                   {% comment %} {% for message in messages %}
+                   <strong style="color: green !important; font-style:bold; padding: 10px">{{ message}}</strong>
+                    
+                    {% endfor %}
+                    
+
+
+
+                    <form  method="POST">
+                        {% csrf_token %} {% endcomment %}
+                            {% comment %} {{form.as_p}} {% endcomment %}
+                        
+                        {% comment %} <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>Full Name*</label>
+                                    <input type="text" class="form-control" name="full_name" id="name" required data-error="Please enter your name">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6 col-md-6">
+                                 <div class="form-group">
+                                    <label>Phone*</label>
+                                    <input type="number" class="form-control" name="phone" id="phone" required data-error="Please enter your phone">
+                                    <div class="help-block with-errors"></div>   
+                                </div> 
+                            </div>
+
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <div>
+                                        <label>Type of services*</label>
+                                    </div>
+                                    
+                                    <select name="type_of_services"  class="form-control">
+                                        <option value="Tiles-Fixing">select</option>
+                                        <option value="Tiles-Fixing">Tiles-Fixing</option>
+                                        <option value="Tiles-Fixing">plumbing</option>
+                                        <option value="Tiles-Fixing">Ac-Technician</option>
+                                        <option value="Tiles-Fixing">Painting</option>
+                                        <option value="Tiles-Fixing">Electrician</option>
+                                        <option value="Tiles-Fixing">Carpenter</option>
+                                    </select>
+
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <div>
+                                        <label>Purpose*</label>
+                                    </div>
+                                    
+                                    <select name="purposes"  class="form-control">
+                                        <option>select</option>
+                                        <option value="Shower Tray">Shower Tray</option>
+                                        <option value="Shower Tap">Shower Tap</option>
+                                        <option value="Tap-Change">Tap-Change</option>
+                                        <option value="Drinage-Flush">Drinage-Flush</option>
+                                    </select>
+
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>Flat no*</label>
+                                    <input type="text" class="form-control" name="flat_no" id="flat_no" required data-error="Please enter your Plat_no">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                   
+                                    <div>
+                                        <label>Building name*</label>
+                                    </div>
+                                    
+                                    <select name="building_names"  class="form-control">
+                                        <option>select</option>
+                                        <option value="Al-Nadha-1">Al-Nadha-1</option>
+                                        <option value="Al-Nadha-2">Al-Nadha-2</option>
+                                        <option value="Al-Nadha-3">Al-Nadha-3</option>
+                                        <option value="Al-Salem-Tower-1">Al-Salem-Tower-1</option>
+                                        <option value="Al-Salem-Tower-2">Al-Salem-Tower-2</option>
+                                        <option value="Tower-8">Tower-8</option>
+                                        <option value="Tower-9">Tower-9</option>
+                                        <option value="Golden-Tower">Golden-Tower</option>
+                                        <option value="Silver-Tower">Silver-Tower</option>
+                                    </select>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>Date*</label>
+                                    <input type="date" class="form-control" name="date" id="dateno" required data-error="Please enter your Plat_no">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group">
+                                    <label>Message*</label>
+                                    <textarea name="message" class="form-control" id="message" cols="30" rows="5" required data-error="Write your message"></textarea>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>  {% endcomment %}
+                            
+                            {% comment %} <div class="col-lg-12 col-md-12">
+                                <button type="submit" class="btn btn-primary">Send Message</button>
+                                <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                <div class="clearfix"></div>
+                            </div> {% endcomment %}
+                        {% comment %} </div> 
+                        <div class="col-lg-12 col-md-12">
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                            
+                        </div>
+                    </form>
+                </div>  {% endcomment %}
+                
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Projects Details Area -->
+
+
+{% endblock  %}
