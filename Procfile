@@ -1,0 +1,1 @@
+web: gunicorn reportersprj.js_com_realeestate --log-file - 
